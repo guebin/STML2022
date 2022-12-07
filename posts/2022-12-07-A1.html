@@ -1801,7 +1801,7 @@ l2: 139753181521472 [7394720, 139753174874064]</code></pre>
 <li>b가 a의 뷰라는 의미는, b가 a를 소스로하여 만들어진 오브젝트란 의미이다.</li>
 <li>따라서 이때 b.base는 a가 된다.</li>
 <li>b는 자체적으로 데이터를 가지고 있지 않으며 a와 공유한다.</li>
-<li>이러한 의미에서 view를 shallow copy 라고 부른다. (stride, shape과 같은 껍데기만 새로 생성, base는 유지)</li>
+<li>이러한 의미에서 view를 shallow copy 라고 부른다. (stride, shape과 같은 껍데기만 새로 생성, 데이터는 a에 저장된 값들을 그대로 사용)</li>
 </ul>
 <p><code>note1</code> 원본 ndarray의 일 경우는 .base가 None으로 나온다.</p>
 <div class="cell" data-execution_count="433">
@@ -1815,7 +1815,7 @@ l2: 139753181521472 [7394720, 139753174874064]</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="435">
-<div class="sourceCode cell-code" id="cb265"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb265-1"><a href="#cb265-1"></a>b.base.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb265"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb265-1"><a href="#cb265-1"></a>b.base.shape <span class="co"># a.shape과 같음</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="435">
 <pre><code>(4, 1)</code></pre>
 </div>
@@ -1824,9 +1824,9 @@ l2: 139753181521472 [7394720, 139753174874064]</code></pre>
 <section id="copy" class="level2">
 <h2 class="anchored" data-anchor-id="copy">copy</h2>
 <p><code>-</code> a를 선언, b는 a의 copy</p>
-<div class="cell" data-execution_count="491">
+<div class="cell" data-execution_count="114">
 <div class="sourceCode cell-code" id="cb267"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb267-1"><a href="#cb267-1"></a>a<span class="op">=</span>np.array([[<span class="dv">1</span>,<span class="dv">2</span>],[<span class="dv">3</span>,<span class="dv">4</span>]])</span>
-<span id="cb267-2"><a href="#cb267-2"></a>b<span class="op">=</span>a.copy() <span class="co"># 껍데기를 새로 생성 (strides, shape) + base도 새로생성 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb267-2"><a href="#cb267-2"></a>b<span class="op">=</span>a.copy() <span class="co"># 껍데기를 새로 생성 (strides, shape) + 데이터도 a와 독립적으로 새로 생성하여 따로 메모리에 저장함. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="492">
 <div class="sourceCode cell-code" id="cb268"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb268-1"><a href="#cb268-1"></a><span class="bu">id</span>(a),<span class="bu">id</span>(b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1880,7 +1880,7 @@ l2: 139753181521472 [7394720, 139753174874064]</code></pre>
 </div>
 </div>
 <p>출생의 비밀은 없었다. 둘다 원본.</p>
-<p><code>-</code> <code>.view()</code> 는 껍데기만 새로생성 // <code>.copy()</code> 는 껍데기와 base를 모두 새로 생성</p>
+<p><code>-</code> <code>.view()</code> 는 껍데기만 새로생성 // <code>.copy()</code> 는 껍데기와 데이터를 모두 새로 생성</p>
 <section id="appendix-.copy의-한계" class="level3">
 <h3 class="anchored" data-anchor-id="appendix-.copy의-한계"><strong><em>Appendix: .copy의 한계(?)</em></strong></h3>
 <p>(관찰)</p>
