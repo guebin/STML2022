@@ -409,7 +409,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#motivation-example" id="toc-motivation-example" class="nav-link" data-scroll-target="#motivation-example">Motivation example</a></li>
   <li><a href="#해설" id="toc-해설" class="nav-link" data-scroll-target="#해설">해설</a></li>
   </ul></li>
-  <li><a href="#shallow-copy-vs-deep-copy" id="toc-shallow-copy-vs-deep-copy" class="nav-link" data-scroll-target="#shallow-copy-vs-deep-copy">Shallow copy vs Deep copy</a></li>
+  <li><a href="#shallow-copy-vs-deep-copy" id="toc-shallow-copy-vs-deep-copy" class="nav-link" data-scroll-target="#shallow-copy-vs-deep-copy">Shallow-copy vs Deep-copy</a></li>
   <li><a href="#numpy" id="toc-numpy" class="nav-link" data-scroll-target="#numpy">numpy</a>
   <ul class="collapse">
   <li><a href="#차원의-실체" id="toc-차원의-실체" class="nav-link" data-scroll-target="#차원의-실체">2차원의 실체</a></li>
@@ -1575,7 +1575,7 @@ l2: 139753181521472 [7394720, 139753174874064]</code></pre>
 </section>
 </section>
 <section id="shallow-copy-vs-deep-copy" class="level1">
-<h1>Shallow copy vs Deep copy</h1>
+<h1>Shallow-copy vs Deep-copy</h1>
 <p><code>-</code> 암기용문구: “shallow copy는 껍데기만 복사한다. deep copy는 내부까지 복사한다.”</p>
 <p><code>-</code> 일부교재에서는 경우에 따라 shallow copy가 선호될 수 있다는 식으로 설명되어있으나 솔직히 대부분 코드에서 shallow copy의 동작을 의도하고 코드를 사용하진 않는다. 대부분의 경우에서 shallow copy는 불필요한 side effect을 유발하는 쓸모없는 개념이라 생각한다.</p>
 <p><code>-</code> 그럼 shallow copy의 장점은 무엇인가? shallow copy가 deep copy보다 메모리를 더 적게 사용한다.</p>
@@ -1946,11 +1946,11 @@ b= [1 list([1, 2])]</code></pre>
 </div>
 <p><code>-</code> 중간요약</p>
 <ul>
-<li>사실 <code>.copy()</code>는 온전한 deep copy 가 아니라 level 2 deep copy 이다.</li>
-<li>따라서 <code>.copy()</code>는 base의 정보를 shallow copy 한다 (level 1 deep copy 한다.)</li>
-<li>그래서 base가 다시 중첩구조를 가지는 경우는 온전한 deep-copy가 수행되지 않는다.</li>
-<li>그런데 일반적으로 넘파이를 이용할때 자주 사용하는 데이터 구조인 행렬, 텐서등은 base가 중첩구조를 가지지 않는다. (1차원 array로만 저장되어 있음)</li>
-<li>따라서 행렬, 텐서에 한정하면 <code>.copy()</code>는 온전한 deep copy라고 이해해도 무방하다. &lt;– 이것만 기억해!</li>
+<li>사실 <code>b=a.copy()</code>는 에서 <code>.copy()</code>는 온전한 deep-copy가 아니다.</li>
+<li>즉 <code>b=a.copy()</code> 에서 <code>.copy()</code>는 <code>a</code>의 데이터정보를 shallow-copy 한다.</li>
+<li>그래서 <code>a</code>의 데이터가 중첩구조를 가지는 경우는 온전한 deep-copy가 수행되지 않는다.</li>
+<li>그런데 일반적으로 넘파이를 이용할때 자주 사용하는 데이터 구조인 행렬, 텐서등은 데이터가 중첩구조를 가지지 않는다. (1차원 array로만 저장되어 있음)</li>
+<li>따라서 행렬, 텐서에 한정하면 <code>.copy()</code>는 온전한 deep-copy라고 이해해도 무방하다. &lt;– 이것만 기억해!</li>
 </ul>
 </section>
 </section>
