@@ -1316,6 +1316,41 @@
     "text": "LSTM이 강한이유\n- LSTM이 장기기억에 유리함. 그 이유는 input, forget, output gate 들이 과거기억을 위한 역할을 하기 때문.\n\n비판: 아키텍처에 대한 이론적 근거는 없음. 장기기억을 위하여 꼭 LSTM같은 구조일 필요는 없음. (왜 3차간장을 만들때 tanh를 써야하는지? 게이트는 꼭3개이어야 하는지?)\n\n- 저는 사실 아까 살펴본 아래의 이유로 이해하고 있습니다.\n\n실험적으로 살펴보니 LSTM이 RNN보다 장기기억에 유리했음.\n그 이유: RRN은 \\({\\boldsymbol h}_t\\)의 값이 -1 혹은 1로 결정되는 경우가 많았음. 그러나 경우에 따라서는 \\({\\boldsymbol h}_t\\)이 -1~1의 값을 가지는 것이 문맥적 뉘앙스를 포착하기에는 유리한데 LSTM이 이러한 방식으로 학습되는 경우가 많았음.\n왜 LSTM의 \\({\\boldsymbol h}_t\\)은 -1,1 이외의 값을 쉽게 가질 수 있는가? (1) gate들의 역할 (2) 마지막에 취해지는 tanh 때문"
   },
   {
+    "objectID": "posts/IV. RNN/2022-12-08-13wk.html",
+    "href": "posts/IV. RNN/2022-12-08-13wk.html",
+    "title": "13wk: 순환신경망 (5)",
+    "section": "",
+    "text": "IMDB자료의 분석 (텍스트생성과 감성분류), 잡담"
+  },
+  {
+    "objectID": "posts/IV. RNN/2022-12-08-13wk.html#잡담1-순환신경망-텍스트마이닝-시계열분석",
+    "href": "posts/IV. RNN/2022-12-08-13wk.html#잡담1-순환신경망-텍스트마이닝-시계열분석",
+    "title": "13wk: 순환신경망 (5)",
+    "section": "잡담1: 순환신경망, 텍스트마이닝, 시계열분석",
+    "text": "잡담1: 순환신경망, 텍스트마이닝, 시계열분석\n- 순환신경망은 순서가 있는 (말이 좀 애매하지만 아무튼 이렇게 많이 표현해요) 자료를 분석할때 사용할 수 있다. 순서가 있는 자료는 대표적으로 시계열자료과 텍스트자료가 있다.\n- 그래서 언뜻 생각하면 텍스트마이닝이나 시계열분석과 내용이 비슷할 것 같지만 사실 그렇지 않다.\n\n텍스트마이닝의 토픽: 단어를 어떻게 숫자로 잘 만들지, 토픽모델 // 자잘하고 실용적인 느낌? 공학적임..\n\n시계열분석의 토픽: 예측(forecasting)과 신뢰구간, 변화점과 관련한 연구 (detection/test), 정상/비정상시계열모형 (ARIMA, GARCH), Cointegration Test, // 느낌이 좀 거창해.. 경제와 관련 많음.\n순환신경망의 토픽(재작년까지): 텍스트생성, 텍스트분류 + 시계열 자료의 예측, 단어의 숫자화 … 텍스트마이닝과 시계열분석의 거의 모든 토픽에 관여함\n순환신경망의 토픽(작년부터?): 딥러닝의 거의 모든 영역에 관여하기 시작함 (심지어 요즘 이미지 분석도 순환망으로 합니다)\n\n\nhttps://youtu.be/thsXGOkcGGg"
+  },
+  {
+    "objectID": "posts/IV. RNN/2022-12-08-13wk.html#잡담2-순환신경망의-아키텍처를-얼마나-깊이-이해해야-할까",
+    "href": "posts/IV. RNN/2022-12-08-13wk.html#잡담2-순환신경망의-아키텍처를-얼마나-깊이-이해해야-할까",
+    "title": "13wk: 순환신경망 (5)",
+    "section": "잡담2: 순환신경망의 아키텍처를 얼마나 깊이 이해해야 할까?",
+    "text": "잡담2: 순환신경망의 아키텍처를 얼마나 깊이 이해해야 할까?\n- 과거기준(텍스트생성, 텍스트분류, 시계열자료예측 등에만 순환망이 이용되었을 때): 학부수준에서 순수 RNN만 알아도 충분했던 것 같음. LSTM이나 GRU는 석사수준?\n- 현재기준: 석사기준 LSTM 같은건 기본이고 어텐션, 트랜스포머등에 대한 개념도 잘 알고 있어야 함. (학부는 잘 모르겠네..)\n- 내 생각: 결국 아키텍처는 근데 유행이라 아키텍처는 한번 따라하면서 이해해보고 핵심 아이디어만 이해하면 된다고 생각함. 즉 LSTM 같은 특정모형의 아키텍처를 달달 외울필요는 없다, 수식써있는거 보고 이해하면 그만임. (수식정도를 이해할 능력은 필요한게.. 코드를 짤때 옵션을 이해할 수는 있어야하니까)\n- 망상: 나중에는 순환신경망이 거의 모든 딥러닝 방법의 base가 되지 않을까?"
+  },
+  {
+    "objectID": "posts/IV. RNN/2022-12-08-13wk.html#잡담3-fastai-pytorch-lightning",
+    "href": "posts/IV. RNN/2022-12-08-13wk.html#잡담3-fastai-pytorch-lightning",
+    "title": "13wk: 순환신경망 (5)",
+    "section": "잡담3: fastai, pytorch lightning",
+    "text": "잡담3: fastai, pytorch lightning\n- 비 컴퓨터공학 출신이 쓰기에는 fastai가 좀 더 쓰기 편한건 사실\n- pytorch lightning은 fastai보다 쓰기 어렵지만 (진짜 약간의 클래스관련 지식이 필요함, 솔직히 별로 어렵진 않아요) 좀 더 순수 파이토치에 가깝고 따라서 코드를 뜯어보기 편리하다.\n- 과거의 생각\n\n전문가: pytorch + fastai // pytorch + pytorch lightning (컴공출신)\n비 전문가: 순수 fastai\n\n- 요즘 생각\n\n모두: pytorch + pytorch lightning\n특정한경우: 순수 fastai <– 모형이 구현되어 있다면 fastai가 좋긴 좋아.. 그런데 모형의 구현속도가 못따라감"
+  },
+  {
+    "objectID": "posts/IV. RNN/2022-12-08-13wk.html#잡담4-우린-뭘-해야-할까-학석사-레벨에서..",
+    "href": "posts/IV. RNN/2022-12-08-13wk.html#잡담4-우린-뭘-해야-할까-학석사-레벨에서..",
+    "title": "13wk: 순환신경망 (5)",
+    "section": "잡담4: 우린 뭘 해야 할까 (학석사 레벨에서..)",
+    "text": "잡담4: 우린 뭘 해야 할까 (학석사 레벨에서..)\n- 능력1: 코드이해력 (= 구현능력 = 코드 베끼는 능력)\n\n이미지분석? 해봤음. 텍스트자료? 해봤음. 시계열? 해봤음. 등등등등? 다 해본적 있음. 어떤 원리인지 정확하게 몰라도 다 해본적 있고 그래서 일할 수 있음!!\n돌아가는 코드 최대한 많이 모아놓으세요. torch, fastai, pytorch lightning, tensorflow, keras 등등\n\n- 능력2: 최신트렌드를 파악할 수 있는 힘 (= 논문이해력)\n\n공부, 공부, 공부… A to Z 까지 수식 다 뜯어보고 코드 다 뜯어보면서 집요하게 공부해야함. (LSTM에서 했던것 처럼!) 물론 차근차근 알려주면 수업이 있다면 좋겠지 그런데 보통은 적당히 두리뭉실하게 설명하지 detail 하게 설명하는 수업은 잘 없음. (지루하거든요)\n수식이나 코드중 하나라도 볼 줄 모르면 능력2를 얻는것 자체가 불가능."
+  },
+  {
     "objectID": "posts/2022-11-02-mid.html",
     "href": "posts/2022-11-02-mid.html",
     "title": "midterm",
@@ -1838,7 +1873,7 @@
     "href": "index.html",
     "title": "기계학습특강(2022)",
     "section": "",
-    "text": "A1: 깊은복사와 얕은복사\n\n\n\n\n\n\n\n\n\n\n\n\nDec 7, 2022\n\n\n최규빈\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12wk: 순환신경망 (4)\n\n\n\n\n\n\n\n순환신경망\n\n\n\n\n\n\n\n\n\n\n\nNov 30, 2022\n\n\n최규빈\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11wk: 순환신경망 (3)\n\n\n\n\n\n\n\n순환신경망\n\n\n\n\n\n\n\n\n\n\n\nNov 16, 2022\n\n\n최규빈\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n10wk: 순환신경망 (2)\n\n\n\n\n\n\n\n순환신경망\n\n\n\n\n\n\n\n\n\n\n\nNov 9, 2022\n\n\n최규빈\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n09wk: 순환신경망 (1)\n\n\n\n\n\n\n\n순환신경망\n\n\n\n\n\n\n\n\n\n\n\nNov 2, 2022\n\n\n최규빈\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmidterm\n\n\n\n\n\n\n\n\n\n\n\n\nNov 2, 2022\n\n\n최규빈\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n08wk-1: 이미지분석 (2)\n\n\n\n\n\n\n\n이미지분석\n\n\n\n\n\n\n\n\n\n\n\nOct 26, 2022\n\n\n최규빈\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n08wk-2: 이미지분석 (3)\n\n\n\n\n\n\n\n이미지분석\n\n\n\n\n\n\n\n\n\n\n\nOct 26, 2022\n\n\n최규빈\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n07wk: 딥러닝의 기초 (5), 이미지분석 (1)\n\n\n\n\n\n\n\n딥러닝의 기초\n\n\n이미지분석\n\n\n\n\n\n\n\n\n\n\n\nOct 19, 2022\n\n\n최규빈\n\n\n\n\n\n\n  \n\n\n\n\n06wk: 딥러닝의 기초 (4)\n\n\n\n\n\n\n\n딥러닝의 기초\n\n\n\n\n\n\n\n\n\n\n\nOct 12, 2022\n\n\n최규빈\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n05wk: 딥러닝의 기초 (3)\n\n\n\n\n\n\n\n딥러닝의 기초\n\n\n\n\n\n\n\n\n\n\n\nOct 5, 2022\n\n\n최규빈\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n04wk: 딥러닝의 기초 (2)\n\n\n\n\n\n\n\n딥러닝의 기초\n\n\n\n\n\n\n\n\n\n\n\nSep 28, 2022\n\n\n최규빈\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n03wk: 딥러닝의 기초 (1)\n\n\n\n\n\n\n\n딥러닝의 기초\n\n\n\n\n\n\n\n\n\n\n\nSep 21, 2022\n\n\n최규빈\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAssignment 1\n\n\n\n\n\n\n\nOverview\n\n\n\n\n\n\n\n\n\n\n\nSep 19, 2022\n\n\n최규빈\n\n\n\n\n\n\n  \n\n\n\n\n02wk: Overview (2)\n\n\n\n\n\n\n\nOverview\n\n\n\n\n\n\n\n\n\n\n\nSep 15, 2022\n\n\n최규빈\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n01wk: Overview (1)\n\n\n\n\n\n\n\nOverview\n\n\n\n\n\n\n\n\n\n\n\nSep 7, 2022\n\n\n최규빈\n\n\n\n\n\n\nNo matching items"
+    "text": "A1: 깊은복사와 얕은복사\n\n\n\n\n\n\n\n\n\n\n\n\nDec 7, 2022\n\n\n최규빈\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n13wk: 순환신경망 (5)\n\n\n\n\n\n\n\n순환신경망\n\n\n\n\n\n\n\n\n\n\n\nDec 1, 2022\n\n\n최규빈\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n12wk: 순환신경망 (4)\n\n\n\n\n\n\n\n순환신경망\n\n\n\n\n\n\n\n\n\n\n\nNov 30, 2022\n\n\n최규빈\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n11wk: 순환신경망 (3)\n\n\n\n\n\n\n\n순환신경망\n\n\n\n\n\n\n\n\n\n\n\nNov 16, 2022\n\n\n최규빈\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n10wk: 순환신경망 (2)\n\n\n\n\n\n\n\n순환신경망\n\n\n\n\n\n\n\n\n\n\n\nNov 9, 2022\n\n\n최규빈\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n09wk: 순환신경망 (1)\n\n\n\n\n\n\n\n순환신경망\n\n\n\n\n\n\n\n\n\n\n\nNov 2, 2022\n\n\n최규빈\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmidterm\n\n\n\n\n\n\n\n\n\n\n\n\nNov 2, 2022\n\n\n최규빈\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n08wk-1: 이미지분석 (2)\n\n\n\n\n\n\n\n이미지분석\n\n\n\n\n\n\n\n\n\n\n\nOct 26, 2022\n\n\n최규빈\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n08wk-2: 이미지분석 (3)\n\n\n\n\n\n\n\n이미지분석\n\n\n\n\n\n\n\n\n\n\n\nOct 26, 2022\n\n\n최규빈\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n07wk: 딥러닝의 기초 (5), 이미지분석 (1)\n\n\n\n\n\n\n\n딥러닝의 기초\n\n\n이미지분석\n\n\n\n\n\n\n\n\n\n\n\nOct 19, 2022\n\n\n최규빈\n\n\n\n\n\n\n  \n\n\n\n\n06wk: 딥러닝의 기초 (4)\n\n\n\n\n\n\n\n딥러닝의 기초\n\n\n\n\n\n\n\n\n\n\n\nOct 12, 2022\n\n\n최규빈\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n05wk: 딥러닝의 기초 (3)\n\n\n\n\n\n\n\n딥러닝의 기초\n\n\n\n\n\n\n\n\n\n\n\nOct 5, 2022\n\n\n최규빈\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n04wk: 딥러닝의 기초 (2)\n\n\n\n\n\n\n\n딥러닝의 기초\n\n\n\n\n\n\n\n\n\n\n\nSep 28, 2022\n\n\n최규빈\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n03wk: 딥러닝의 기초 (1)\n\n\n\n\n\n\n\n딥러닝의 기초\n\n\n\n\n\n\n\n\n\n\n\nSep 21, 2022\n\n\n최규빈\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAssignment 1\n\n\n\n\n\n\n\nOverview\n\n\n\n\n\n\n\n\n\n\n\nSep 19, 2022\n\n\n최규빈\n\n\n\n\n\n\n  \n\n\n\n\n02wk: Overview (2)\n\n\n\n\n\n\n\nOverview\n\n\n\n\n\n\n\n\n\n\n\nSep 15, 2022\n\n\n최규빈\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n01wk: Overview (1)\n\n\n\n\n\n\n\nOverview\n\n\n\n\n\n\n\n\n\n\n\nSep 7, 2022\n\n\n최규빈\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
