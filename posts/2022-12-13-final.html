@@ -9,7 +9,7 @@
 <meta name="author" content="최규빈">
 <meta name="dcterms.date" content="2022-12-13">
 
-<title>STML2022 - final (ver 0.9)</title>
+<title>STML2022 - final</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -169,7 +169,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">final (ver 0.9)</h1>
+      <h1 class="quarto-secondary-nav-title">final</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -180,7 +180,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title d-none d-lg-block">final (ver 0.9)</h1>
+      <h1 class="title d-none d-lg-block">final</h1>
                       </div>
   </div>
     
@@ -230,7 +230,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../posts/2022-12-13-final.html" class="sidebar-item-text sidebar-link active">final (ver 0.9)</a>
+  <a href="../posts/2022-12-13-final.html" class="sidebar-item-text sidebar-link active">final</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -395,17 +395,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote class="blockquote">
 <p>기말고사</p>
 </blockquote>
-<div class="cell" data-execution_count="3">
+<div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> torch </span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">from</span> fastai.text.<span class="bu">all</span> <span class="im">import</span> <span class="op">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="covid19-tweets-to-텍스트생성-30점" class="level2">
 <h2 class="anchored" data-anchor-id="covid19-tweets-to-텍스트생성-30점"><code>1</code>. COVID19 tweets <span class="math inline">\(\to\)</span> 텍스트생성 (30점)</h2>
 <p>아래의 코드를 이용하여 자료를 다운로드 하라.</p>
-<div class="cell" data-execution_count="79">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'Corona_NLP_train.csv'</span>,encoding<span class="op">=</span><span class="st">"ISO-8859-1"</span>)</span>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/STML2022/main/posts/Corona_NLP_train.csv'</span>,encoding<span class="op">=</span><span class="st">"ISO-8859-1"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="79">
+<div class="cell-output cell-output-display" data-execution_count="3">
 
 <div>
 
@@ -653,10 +653,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="covid19-tweets-to-분류-30점" class="level2">
 <h2 class="anchored" data-anchor-id="covid19-tweets-to-분류-30점"><code>2</code>. COVID19 tweets <span class="math inline">\(\to\)</span> 분류 (30점)</h2>
 <p>아래의 코드를 이용하여 자료를 다운로드 하라.</p>
-<div class="cell" data-execution_count="79">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'Corona_NLP_train.csv'</span>,encoding<span class="op">=</span><span class="st">"ISO-8859-1"</span>)</span>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/STML2022/main/posts/Corona_NLP_train.csv'</span>,encoding<span class="op">=</span><span class="st">"ISO-8859-1"</span>)</span>
 <span id="cb6-2"><a href="#cb6-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="79">
+<div class="cell-output cell-output-display" data-execution_count="4">
 
 <div>
 
