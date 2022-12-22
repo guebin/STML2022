@@ -4,7 +4,7 @@
     "href": "posts/V. RecSys/2022-12-21-Extra-1.html",
     "title": "Extra-1: 추천시스템",
     "section": "",
-    "text": "import torch\nimport numpy as np \nimport pandas as pd\nfrom fastai.collab import *"
+    "text": "추천시스템– 나는 솔로, 커피vs홍차"
   },
   {
     "objectID": "posts/V. RecSys/2022-12-21-Extra-1.html#주절주절-intro",
@@ -277,7 +277,7 @@
     "href": "posts/VI. GAN/2022-12-21-Extra-2.html",
     "title": "Extra-2: 생성모형(GAN)",
     "section": "",
-    "text": "asdf\n\n이 강의는 2021년 빅데이터분석의 강의노트 및 강의영상을 편집하여 만들었습니다."
+    "text": "GAN– MNIST 3/7"
   },
   {
     "objectID": "posts/VI. GAN/2022-12-21-Extra-2.html#생성모형이란-쉬운-설명",
